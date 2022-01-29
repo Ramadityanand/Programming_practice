@@ -28,14 +28,8 @@ blockchain = [
 
 # 👇👇👇 Your code HERE 👇👇👇
 
-# Creating new variables for each user for their KelloggCoin balance
 
-# kc_Ben = 0
-# kc_Brian = 0
-# kc_Evan = 0
-# kc_Anthony = 0
-
-puts "#{blockchain[3][:from_user]} #{blockchain[3][:to_user]}"
+# puts "#{blockchain[3][:from_user]} #{blockchain[3][:to_user]}"
 
 for send in blockchain
   for received in blockchain
@@ -47,4 +41,3 @@ for send in blockchain
   puts "#{send[:from_user]}'s KelloggCoin balance is"
   end
 end
-# puts "KelloggCoin balance is #{kc_Anthony}"
