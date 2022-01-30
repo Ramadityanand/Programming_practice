@@ -48,22 +48,27 @@ for user_send in blockchain
 end
 
 combined_user = combined_user.uniq
-puts combined_user
+user_balance = Array.new(combined_user.length,0)
+puts user_balance[1]
 
 # Balance calculation
 
-for send in blockchain
-  for received in blockchain
-    if send[:from_user] == received[:to_user]
-      balance = balance + received[:amount]
-    else
-      balance = balance - received[:amount]
-    end
-  # puts received[:to_user]
-  end
-  if send[:from_user] == nil
-    # print nothing
-  else
-  puts "#{send[:from_user].capitalize}'s KelloggCoin balance is #{balance}"
-  end
+# for send in blockchain
+#   for received in blockchain
+#     if send[:from_user] == received[:to_user]
+#       balance = balance + received[:amount]
+#     else
+#       balance = balance - received[:amount]
+#     end
+#   # puts received[:to_user]
+#   end
+#   if send[:from_user] == nil
+#     # print nothing
+#   else
+#   puts "#{send[:from_user].capitalize}'s KelloggCoin balance is #{balance}"
+#   end
+# end
+
+for user in combined_user
+  puts "#{user.capitalize}'s KelloggCoin balance is #{user.index["user"]}"
 end
