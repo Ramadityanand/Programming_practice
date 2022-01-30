@@ -28,16 +28,42 @@ blockchain = [
 
 # 👇👇👇 Your code HERE 👇👇👇
 
+# creating balance variable to calculate balance of each user
 
-# puts "#{blockchain[3][:from_user]} #{blockchain[3][:to_user]}"
+balance = 0
+
+# creating list of users from the hashes
+
+combined_user = []
+
+for user_send in blockchain
+  if user_send[:from_user] == nil
+    # Do nothing
+  else
+  combined_user = combined_user + [user_send[:from_user]]
+  end
+  for user_received in blockchain
+  combined_user = combined_user + [user_received[:to_user]]
+  end
+end
+
+combined_user = combined_user.uniq
+puts combined_user
+
+# Balance calculation
 
 for send in blockchain
   for received in blockchain
-  puts received[:to_user]
+    if send[:from_user] == received[:to_user]
+      balance = balance + received[:amount]
+    else
+      balance = balance - received[:amount]
+    end
+  # puts received[:to_user]
   end
   if send[:from_user] == nil
     # print nothing
   else
-  puts "#{send[:from_user]}'s KelloggCoin balance is"
+  puts "#{send[:from_user].capitalize}'s KelloggCoin balance is #{balance}"
   end
 end
